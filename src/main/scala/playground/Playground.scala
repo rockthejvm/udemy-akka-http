@@ -12,19 +12,16 @@ object Playground extends App {
   implicit val system = ActorSystem("AkkaHttpPlayground")
   implicit val materializer = ActorMaterializer()
   import system.dispatcher
-
+val html=        """
+                   |<html>
+                   | <body>
+                   |   Rock the JVM with Akka HTTP!
+                   | </body>
+                   |</html>
+        """.stripMargin
   val simpleRoute =
     pathEndOrSingleSlash {
-      complete(HttpEntity(
-        ContentTypes.`text/html(UTF-8)`,
-        """
-          |<html>
-          | <body>
-          |   Rock the JVM with Akka HTTP!
-          | </body>
-          |</html>
-        """.stripMargin
-      ))
+      complete(HttpEntity(ContentTypes.`text/html(UTF-8)`,html))
     }
 
   val bindingFuture = Http().bindAndHandle(simpleRoute, "localhost", 8080)

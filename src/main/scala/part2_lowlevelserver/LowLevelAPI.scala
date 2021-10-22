@@ -19,8 +19,8 @@ object LowLevelAPI extends App {
   import system.dispatcher
 
   val serverSource = Http().bind("localhost", 8000)
-  val connectionSink = Sink.foreach[IncomingConnection] { connection =>
-    println(s"Accepted incoming connection from: ${connection.remoteAddress}")
+  val connectionSink = Sink.foreach[IncomingConnection] {
+    connection => println(s"Accepted incoming connection from: ${connection.remoteAddress}")
   }
 
   val serverBindingFuture = serverSource.to(connectionSink).run()
