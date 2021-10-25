@@ -1,6 +1,6 @@
 //https://medium.com/nerd-for-tech/futures-in-scala-201677bc5d97
 
-package part1_recap
+package mypackage
 
 trait A
 class B extends A
@@ -65,8 +65,8 @@ To make main thread wait scala.concurrent.Await.result(future,15.seconds) is use
 isComplete , value ,map , collect
  */
 object FutureTest extends App{
-  import scala.concurrent.Future
   import scala.concurrent.ExecutionContext.Implicits.global
+  import scala.concurrent.Future
   import scala.util.{Failure, Success}
 
   val f1:Future[Int] = Future { Thread.sleep(500); 21 + 21 } //Normal

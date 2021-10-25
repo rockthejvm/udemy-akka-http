@@ -37,10 +37,7 @@ object DirectivesBreakdown extends App {
       )
     }
 
-  val complexPathRoute =
-    path("api" / "myEndpoint") {
-      complete(StatusCodes.OK)
-    } // /api/myEndpoint
+  val complexPathRoute = path("api" / "myEndpoint") {complete(StatusCodes.OK) } // /api/myEndpoint
 
   val dontConfuse =
     path("api/myEndpoint") {
