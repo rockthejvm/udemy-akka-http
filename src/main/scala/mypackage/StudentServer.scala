@@ -1,5 +1,0 @@
-package mypackage
-
-object StudentServer {
-
-}
