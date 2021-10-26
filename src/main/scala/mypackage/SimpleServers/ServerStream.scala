@@ -9,7 +9,6 @@ import akka.stream.scaladsl.Flow
 object ServerStream extends App{
   implicit val system = ActorSystem("LowLevelServerAPI")
   implicit val materializer = ActorMaterializer()
-
   val html=    """<html><body>Hello from Akka HTTP!</body></html>""".stripMargin
   val htmlerror="""html><body>OOPS! The resource can't be found.</body></html>""".stripMargin
 

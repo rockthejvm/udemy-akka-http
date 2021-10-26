@@ -20,6 +20,7 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % scalaTestVersion,
   
   // JWT
-  "com.pauldijou" %% "jwt-spray-json" % "2.1.0"
-
+  "com.pauldijou" %% "jwt-spray-json" % "2.1.0",
+"org.json" % "json" % "20210307"
 )
+
