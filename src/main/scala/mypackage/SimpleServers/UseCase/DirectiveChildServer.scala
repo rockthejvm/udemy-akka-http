@@ -26,7 +26,7 @@ object ChildServer extends App {
   import akka.util.Timeout
 
   import scala.concurrent.duration._
-    implicit  val timeout=Timeout(2 seconds)
+  implicit  val timeout=Timeout(2 seconds)
 
   implicit val materializer = ActorMaterializer()
   import system.dispatcher //dont use in prod
