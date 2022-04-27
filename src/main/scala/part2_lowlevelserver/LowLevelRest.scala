@@ -151,7 +151,10 @@ object LowLevelRest extends App with GuitarStoreJsonProtocol {
         quantity <- guitarQuantity
       } yield {
         val newGuitarFuture: Future[Option[Guitar]] = (guitarDb ? AddQuantity(id, quantity)).mapTo[Option[Guitar]]
-        newGuitarFuture.map(_ => HttpResponse(StatusCodes.OK))
+        newGuitarFuture.map {
+          case Some(_)  => HttpResponse(StatusCodes.OK)
+          case None => HttpResponse(StatusCodes.NotFound)
+        }
       }
 
       validGuitarResponseFuture.getOrElse(Future(HttpResponse(StatusCodes.BadRequest)))
